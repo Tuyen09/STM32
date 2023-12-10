@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"toggle_pin_usse_registor\startup_stm32f411xe.o"
+"toggle_pin_usse_registor\main.o"
+"toggle_pin_usse_registor\gpio.o"
+"toggle_pin_usse_registor\stm32f4xx_it.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_msp.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_tim.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_tim_ex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_rcc.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_rcc_ex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_flash.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_flash_ex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_flash_ramfunc.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_gpio.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_dma_ex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_dma.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_pwr.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_pwr_ex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_cortex.o"
+"toggle_pin_usse_registor\stm32f4xx_hal.o"
+"toggle_pin_usse_registor\stm32f4xx_hal_exti.o"
+"toggle_pin_usse_registor\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "toggle_pin_usse_registor\toggle_pin_usse_registor.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "toggle_pin_usse_registor.map" -o toggle_pin_usse_registor\toggle_pin_usse_registor.axf

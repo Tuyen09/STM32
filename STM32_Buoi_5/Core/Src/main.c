@@ -69,16 +69,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
     if (GPIO_Pin == GPIO_PIN_0)
     {
-        // Lấy thời gian hiện tại
         uint32_t currentTime = HAL_GetTick();
-
-        // Kiểm tra thời gian giữa hai lần nhấn
         if (currentTime - lastButtonPressTime > DEBOUNCE_DELAY)
         {
-            // Đặt lại thời gian lần nhấn cuối cùng
+           
             lastButtonPressTime = currentTime;
-
-            // Chuyển đổi giữa hai chương trình
             program = !program;
         }
     }

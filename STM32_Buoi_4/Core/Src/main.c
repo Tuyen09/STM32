@@ -6,18 +6,27 @@ int dem = -1, _dem = 0, tick = 0;
 
 void SystemClock_Config(void);
 
+uint32_t lastButtonPressTime = 0;
+#define DEBOUNCE_DELAY 150 // Điều chỉnh theo nhu cầu của bạn
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  UNUSED(GPIO_Pin);	
-	if(GPIO_Pin == GPIO_PIN_0)
-	{
-		dem= dem+1;
-		_dem++;
-	}
-	
-	for(int i = 0; i < 500000; i++){}
-	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
-	HAL_NVIC_ClearPendingIRQ(EXTI0_IRQn);
+    UNUSED(GPIO_Pin);
+
+    if (GPIO_Pin == GPIO_PIN_0)
+    {
+        // Lấy thời gian hiện tại
+        uint32_t currentTime = HAL_GetTick();
+
+        // Kiểm tra thời gian giữa hai lần nhấn
+        if (currentTime - lastButtonPressTime > DEBOUNCE_DELAY)
+        {
+            // Đặt lại thời gian lần nhấn cuối cùng
+            lastButtonPressTime = currentTime;
+
+            // Chuyển đổi giữa hai chương trình
+            dem++;
+        }
+    }
 }
 
 int main(void)

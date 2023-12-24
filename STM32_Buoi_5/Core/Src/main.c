@@ -60,7 +60,7 @@ void main2(void);
 
 // Khai báo biến
 uint32_t lastButtonPressTime = 0;
-#define DEBOUNCE_DELAY 150 // Điều chỉnh theo nhu cầu của bạn
+#define DEBOUNCE_DELAY 150 
 
 // Hàm callback ngắt nút nhấn
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)

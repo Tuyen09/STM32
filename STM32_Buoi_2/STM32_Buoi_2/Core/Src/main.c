@@ -2,6 +2,41 @@
 #include "main.h"
 #include "gpio.h"
 void SystemClock_Config(void);
+//int count;
+//uint16_t time = 0, value;
+//unsigned char Status, LastStatus;
+
+
+//unsigned char button_status()
+//{
+//	return count >= 4 ? GPIO_PIN_SET : GPIO_PIN_RESET;
+//}
+
+//void button_begin()
+//{
+//	value = 0;
+//	for( unsigned char i = 0; i < 5; i++)
+//	{
+//		unsigned char read = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+//		value <<= 1;
+//		value = read;
+//		count += read;
+//	}
+//	time = 0;
+//	Status = button_status();
+//	LastStatus = 0;
+//}
+
+//void button_pro()
+//{
+//	unsigned char read = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+//	value <<= 1;
+//	value = read;
+//	count += read;
+//	
+//}
+#define button_nhan 1
+#define button_nha 0
 int main(void)
 {
   HAL_Init();
@@ -18,16 +53,28 @@ int main(void)
 		}
 		*/
 		// cach 2 
-		static int stt = 0;
-		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 1)
-		{
-				while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 1);
-				stt = !stt;
-				stt = (stt > 0) ? GPIO_PIN_SET : GPIO_PIN_RESET;
+		static int truoc, hientai,dem =0, count = 0;
+		truoc =hientai;
+		hientai=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
+				if(hientai == button_nha && truoc == button_nha ) {
+		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_12);
 		}
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, stt);
-  }
+		if(hientai ==button_nhan && truoc==button_nhan){
+				HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_13);
+			}
+		if(hientai == button_nha && truoc == button_nhan ) {
+		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_14);
+				dem++;
+		}
+	
+				if(hientai == button_nhan && truoc == button_nha ) {
+		HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_15);
+					count++;
+			
+		}
 
+		HAL_Delay(50);
+	}
 }
 
 void SystemClock_Config(void)

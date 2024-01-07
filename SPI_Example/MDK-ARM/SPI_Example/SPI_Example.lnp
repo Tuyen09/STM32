@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp
+"spi_example\startup_stm32f411xe.o"
+"spi_example\main.o"
+"spi_example\gpio.o"
+"spi_example\spi.o"
+"spi_example\stm32f4xx_it.o"
+"spi_example\stm32f4xx_hal_msp.o"
+"spi_example\stm32f4xx_hal_spi.o"
+"spi_example\stm32f4xx_hal_rcc.o"
+"spi_example\stm32f4xx_hal_rcc_ex.o"
+"spi_example\stm32f4xx_hal_flash.o"
+"spi_example\stm32f4xx_hal_flash_ex.o"
+"spi_example\stm32f4xx_hal_flash_ramfunc.o"
+"spi_example\stm32f4xx_hal_gpio.o"
+"spi_example\stm32f4xx_hal_dma_ex.o"
+"spi_example\stm32f4xx_hal_dma.o"
+"spi_example\stm32f4xx_hal_pwr.o"
+"spi_example\stm32f4xx_hal_pwr_ex.o"
+"spi_example\stm32f4xx_hal_cortex.o"
+"spi_example\stm32f4xx_hal.o"
+"spi_example\stm32f4xx_hal_exti.o"
+"spi_example\stm32f4xx_hal_tim.o"
+"spi_example\stm32f4xx_hal_tim_ex.o"
+"spi_example\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "SPI_Example\SPI_Example.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "SPI_Example.map" -o SPI_Example\SPI_Example.axf
